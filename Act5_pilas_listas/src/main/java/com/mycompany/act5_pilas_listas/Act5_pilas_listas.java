@@ -16,5 +16,8 @@ public class Act5_pilas_listas {
         
         System.out.println("Ejercicio2 ");
         Ejer2.ejecutar();
+        
+        System.out.println("Ejercicio3 ");
+        Ejer3.ejecutar();
     }
 }
