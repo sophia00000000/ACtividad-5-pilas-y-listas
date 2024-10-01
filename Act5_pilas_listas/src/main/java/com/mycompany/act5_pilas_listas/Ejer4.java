@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Ejer4 {
-	public static ArrayList<Stack<Stack<String>>> bodega = new ArrayList();
+	public static ArrayList<ArrayList<Stack<String>>> bodega = new ArrayList();
 	
 	public static void ejecutar(){
 		llenarBodega();
@@ -21,24 +21,27 @@ public class Ejer4 {
 	
 	public static void llenarBodega() {
 	// Arreglo principal de 9 pilas
-	int cantidadFilas=9; //9 pilas
+	int cantidadFilas=9; 
 	int cantidadPilasPorFila=7; //7 pilas en cada una de las 9 filas
 	int cantidadPorPila=8; // alto de cada pila
 	
+	char letra ='A';
+	int entero=1000;
+	
 		for (int i = 0; i < cantidadFilas; i++) {
-            Stack< Stack<String> > pilaFila = new Stack<>();
+			ArrayList< Stack<String> > fila = new ArrayList<>();
             
             for (int j = 0; j < cantidadPilasPorFila; j++) {
             	Stack<String> pila = new Stack<>();
             	
             	for (int k = 0; k < cantidadPorPila; k++) {
-            		Random random = new Random();
-      	
-            		pila.push((char) ('A' + random.nextInt(26)) + String.format("%04d", random.nextInt(10000)));
+            		String numero= ""+letra+entero;
+            		pila.push(numero);
+            		entero++;            		
             	}
-            	pilaFila.push(pila);
+            	fila.add(pila);
             }          
-            bodega.add(pilaFila);
+            bodega.add(fila);
 		}
 
 	}
@@ -46,7 +49,7 @@ public class Ejer4 {
 	public static void mostrarBodega() {
         for (int i = 0; i < bodega.size(); i++) {
             System.out.println("Fila " + (i + 1) + ":");
-            Stack<Stack<String>> fila = bodega.get(i); // Devuelve una pila de pilas
+            ArrayList<Stack<String>> fila = bodega.get(i); // Devuelve una fila de pilas
             
             for (int j = 0; j < fila.size(); j++) {
                 Stack<String> pila = fila.get(j);
@@ -63,7 +66,7 @@ public class Ejer4 {
             return false; // Contenedor no encontrado
         }
 
-        Stack<Stack<String>> fila = bodega.get(filaIndex);
+        ArrayList<Stack<String>> fila = bodega.get(filaIndex);
         
         // Caso base
         if (columnaIndex >= fila.size()) {
