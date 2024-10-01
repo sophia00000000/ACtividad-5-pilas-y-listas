@@ -34,6 +34,7 @@ ejer1:
         sumar y promediar si las lista o pilas no están vacías
 
   ejer4:
+  pila.push((char) ('A' + random.nextInt(26)) + String.format("%04d", random.nextInt(10000)));
     public static ArrayList<Stack<Stack<String>>> bodega = new ArrayList();
     funcion llenar bodega
     funcion recursiva sacarContenedor(codigo)
